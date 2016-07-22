@@ -343,7 +343,7 @@ int dileptonCommon::eventSelection(const edm::Event& iEvent, const edm::EventSet
           const auto partonW21 = partonW2->daughter(0);
           const auto partonW22 = partonW2->daughter(1);
           if ( (partonW11->pt() > 20 && std::abs(partonW11->eta()) < 2.4 && (std::abs(partonW11->pdgId()) == 11 || std::abs(partonW11->pdgId()) == 13) ) &&
-              (partonW21->pt() > 20 && std::abs(partonW21->eta()) < 2.4 && (std::abs(partonW11->pdgId()) == 11 || std::abs(partonW11->pdgId()) == 13) ))
+              (partonW21->pt() > 20 && std::abs(partonW21->eta()) < 2.4 && (std::abs(partonW21->pdgId()) == 11 || std::abs(partonW21->pdgId()) == 13) ))
             b_gen_partonInPhaseLep = true;
 
           // Fill lepton informations
@@ -382,6 +382,7 @@ int dileptonCommon::eventSelection(const edm::Event& iEvent, const edm::EventSet
         leptonIdxs.push_back(i);
       }
       if ( leptonIdxs.size() !=2 ) break;
+
       std::nth_element(leptonIdxs.begin(), leptonIdxs.begin()+2, leptonIdxs.end(),
           [&](size_t i, size_t j){return pseudoTopLeptonHandle->at(i).pt() > pseudoTopLeptonHandle->at(j).pt();});
       auto lepton1 = pseudoTopLeptonHandle->at(leptonIdxs[0]).p4();
