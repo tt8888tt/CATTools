@@ -37,7 +37,7 @@ for d in sorted(os.listdir('pass1')):
     normFactor = 1.0
     avgWgt = float(ds[d]['avgWgt'])
     nEvent = int(ds[d]['nevt'])
-    part_nEvent = 0
+    partNEvent = 0
     if h != None:
         xsec = ds[d]['xsec']
         partAvgWgt = h.GetMean()
